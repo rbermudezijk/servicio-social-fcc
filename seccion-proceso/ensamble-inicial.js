@@ -45,4 +45,3 @@ let _estilos = `
       grid-area: contenido;
     }
   </style>`
-

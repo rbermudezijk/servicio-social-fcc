@@ -4,9 +4,7 @@
  * #Fecha de creación  -> 20 de febrero del 2019.
  * 
  * Este componente representa una determinada etapa del proceso de desarrollo
- * del Servicio Social. Cuando un alumno está registrádo en el sistema le
- * muestra el porcentaje de avance de ese alumno con respecto a la etapa del
- * proceso que se represente con este componente.
+ * del Servicio Social.
  */
 export class PorcentajeDeAvance extends HTMLElement {  
 
@@ -21,39 +19,11 @@ export class PorcentajeDeAvance extends HTMLElement {
       
       this.DOMRaiz = this.attachShadow({mode: 'open'});
       this.DOMRaiz.innerHTML += _estilos;
-      this.DOMRaiz.innerHTML += _plantilla(
-        '18vmin', this.getAttribute('título')
-      );
+      this.DOMRaiz.innerHTML += _plantilla(this.getAttribute('título'));
       
       this.arcoIzquierdo = this.DOMRaiz.querySelector('.carga.izquierdo');
       this.arcoDerecho   = this.DOMRaiz.querySelector('.carga.derecho');
-      this.porcentaje    = this.DOMRaiz.querySelector('.contenido');
-      this.título        = this.DOMRaiz.querySelector('.titulo');
-    }
-
-    /**
-     * Agrega la escucha sobre de cambios en el atributo porcentaje.
-     */
-    static get observedAttributes() {
-      return ['porcentaje']
-    }
-    
-    /**
-     * - a<texto> -> Nombre del atrbuto del componente que cambió.
-     *               Como solo se observan cambios respecto al atributo
-     *               porcentaje esta propiedad no se utiliza.
-     * 
-     * - b<texto> -> Valor anterior del atributo del componente.
-     * 
-     * - porcentajeDeAvance<texto> -> Porcentaje de avance del alumno sobre
-     *                                de esta etapa del Servicio Social.
-     * 
-     * Actualiza el porcentaje de avance de un alumno respecto a una etapa del
-     * proceso del servicio social (En el título y la barra de porcentaje).
-     */
-    attributeChangedCallback(a, b, porcentajeDeAvance) {
-      this.porcentaje.innerHTML = `${porcentajeDeAvance}%`;
-      setTimeout(() => this.cargarPorcentaje(porcentajeDeAvance), 150);
+      setTimeout(() => this.cargarPorcentaje(100), 150);
     }
 
     /**
@@ -93,14 +63,15 @@ export class PorcentajeDeAvance extends HTMLElement {
  *   
  *   https://css-tricks.com/css-pie-timer/
  */
-let _plantilla = (radio, título='') => `
-  <div class="circunferencia" style="width:${radio}; height:${radio}">
+let _plantilla = (título='') => `
+  <div class="circunferencia">
     <div class="arco-pi izquierdo mascara"></div>
     <div class="arco-pi izquierdo carga"></div>
     <div class="arco-pi derecho mascara"></div>
     <div class="arco-pi derecho carga"></div>
-    <div class="contenido"></div>
-    <div class="título">${título}</div>
+    <div class="contenido">
+      <p>${título}</p>
+    </div>
   </div>`;
 
 let _estilos = `
@@ -108,6 +79,10 @@ let _estilos = `
   .circunferencia {
     position: relative;
     cursor: pointer;
+    width:  17.0vw;
+    height: 17.0vw;
+    max-width:  170px;
+    max-height: 170px;
   }
   
   .arco-pi {
@@ -115,7 +90,7 @@ let _estilos = `
     height: 100%;
     position: absolute;
     box-sizing: border-box;
-    border-width: 4px;
+    border-width: 0.6vmin;
     border-style: solid;
   }
   .izquierdo {
@@ -188,31 +163,8 @@ let _estilos = `
     align-items: center;
     justify-content: center;
     font-family: 'Source Sans Pro Regular';
-    font-size: 21pt;
+    font-size: 3.5vmin;
     color: rgb(115, 113, 113);
-    transition: font-size 0.25s ease-out;
-  }
-
-  .circunferencia:hover .contenido {
-    font-size: 22.5pt;
-  }
-
-  .título {
-    width: 100%;
-    position: absolute;
-    user-select: none;
-    bottom: -55px;
-    transition: font-size 0.15s ease-out;
-    font-family: 'Source Sans Pro Regular';
-    font-weight: 500;
-    font-size: 22pt;
-    text-align: center;
-    color: rgb(115, 113, 113);
-    transition: border 0.25s ease-in-out;
-  }
-
-  .circunferencia:hover .título {
-    border-bottom: rgb(115, 113, 113) 2.8pt solid;
   }
 
   </style>`;
