@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Source Sans Pro Regular';
+    src: url('source-sans-pro.regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro Black';
+    src: url('source-sans-pro.black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro Bold';
+    src: url('source-sans-pro.bold.ttf') format('truetype');
+}

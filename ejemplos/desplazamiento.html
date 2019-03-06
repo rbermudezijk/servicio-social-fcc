@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejemplo</title>
+    <style>
+      *{
+          margin: 0;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;          
+      }
+      main {
+          width: 100vw;
+          height: 100vh;
+          background: #eaeaea;
+          position: absolute;
+          left: 0;
+          top: 0;
+      }
+      .descripción {
+          width: 50vw;
+          height: 100vh;
+          position: absolute;
+          background: rgb(77, 75, 75);
+          left: 100vw;
+          top: 0;
+          z-index: 2;
+          will-change: transform;
+          transition: transform 0.25s ease-out;
+      }
+      .velo {
+        background-color: rgba(0,0,0,0.3);
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        z-index: 1;
+      }
+    </style>
+</head>
+<body>
+    <div class="velo"></div>
+    <main>
+            The will-change CSS property hints to browsers how an element is expected to change. Browsers may set up optimizations before an element is actually changed. These kinds of optimizations can increase the responsiveness of a page by doing potentially expensive work before they are actually required.
+    </main>
+    <aside></aside>
+    <script>
+      (()=>{
+        let main = document.querySelector('main');
+        let velo = document.querySelector('.velo');
+        let aside = document.querySelector('aside');
+        let button = document.querySelector('button');
+
+
+      })();
+    </script>
+</body>
+</html>
