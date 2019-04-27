@@ -54,7 +54,6 @@ let _estilos = `
      * 1.4 - Estructura interna.
      */
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
   }

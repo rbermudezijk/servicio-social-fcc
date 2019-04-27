@@ -64,7 +64,10 @@ export class PorcentajeDeAvance extends HTMLElement {
  *   https://css-tricks.com/css-pie-timer/
  */
 let _plantilla = (título='', flecha='') => `
-  <div class="circunferencia">
+  <div class="
+    circunferencia
+    ${!flecha?`-margen-d-155`:''}">
+
     <div class="arco-pi -izquierdo -mascara"></div>
     <div class="arco-pi -izquierdo -carga"></div>
     <div class="arco-pi -derecho -mascara"></div>
@@ -72,9 +75,8 @@ let _plantilla = (título='', flecha='') => `
     <div class="contenido">
       <p>${título}</p>
     </div>
-    ${!flecha
-    ?`<i class="flecha"></i>`
-    :''}
+
+    ${!flecha?`<i class="flecha"></i>`:''}
   </div>`;
 
 let _estilos = `
@@ -82,15 +84,18 @@ let _estilos = `
   .circunferencia {
     position:   relative;
     cursor:     pointer;
-    width:      10.0vw;
-    height:     10.0vw;
+    width:      150px/*10.0vw*/;
+    height:     150px/*10.0vw*/;
+  }
+  .-margen-d-155 {
+    margin-right: 155px;
   }
       .arco-pi {
         width: 50%;
         height: 100%;
         position: absolute;
         box-sizing: border-box;
-        border-width: 0.3vw;
+        border-width: 3px/*0.3vw*/;
         border-style: solid;
       }
           .-izquierdo {
@@ -143,7 +148,7 @@ let _estilos = `
        */
       .contenido{
         box-shadow: 0 10px 20px rgba(0,0,0,0.19),
-        0  6px  6px rgba(0,0,0,0.23);
+                    0  6px  6px rgba(0,0,0,0.23);
         transition: box-shadow 0.2s ease-out;    
       }
       .circunferencia:hover .contenido {
@@ -156,21 +161,22 @@ let _estilos = `
       .contenido {
         display: flex;
         user-select: none;
+        -moz-user-select: none;
         align-items: center;
         justify-content: center;
         font-family: 'Source Sans Pro Regular';
-        font-size: 3.5vmin;
+        font-size: 25px /*3.5vmin*/;
         color: rgb(115, 113, 113);
       }
   
       /**
        * Flecha: Posicionamiento.
        */
-      .flecha{
+      .flecha {
         width: fit-content;
         position: absolute;
         left: 120%;
-        top: 15%;
+        top:  15%;
         text-shadow: 0 10px 20px rgba(0,0,0,0.19),
                      0  6px  6px rgba(0,0,0,0.23);
       }
@@ -180,6 +186,6 @@ let _estilos = `
       .flecha::after {
         content:   "\\2192";
         color: rgb(115, 113, 113);
-        font-size: 6vw;
+        font-size: 100px/*6vw*/;
       }
 </style>`;

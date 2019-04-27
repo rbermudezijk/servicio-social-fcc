@@ -35,7 +35,7 @@ export class SeguimientoDeAlumno extends HTMLElement {
   connectedCallback() {
     this.velo.onclick = ()=> this.ocultarDetallesDeAvance();
     this.porcentajesDeAvance.forEach(
-      arco => arco.onclick = ()=> this.mostrarDetallesDeAvance()
+      arco => arco.onclick = () => this.mostrarDetallesDeAvance()
     );
   }
 
@@ -64,29 +64,32 @@ export class SeguimientoDeAlumno extends HTMLElement {
  */
 let _plantilla = `
   <section class="contenedor-principal">
-    <porcentaje-de-avance 
-      porcentaje="100"
-      título="Comienzo">
-    </porcentaje-de-avance>
-    <porcentaje-de-avance
-      título="Inscripción"
-      porcentaje="75">
-    </porcentaje-de-avance>
-    <porcentaje-de-avance
-      porcentaje="0"
-      título="Desarrollo">
-    </porcentaje-de-avance>
-    <porcentaje-de-avance
-      porcentaje="0"
-      título="Término">
-    </porcentaje-de-avance>
-    <porcentaje-de-avance
-      porcentaje="0"
-      título="Certificación"
-      mostrar-flecha="no">
-    </porcentaje-de-avance>
+    <div class="flujo-de-procedimiento">
+      <porcentaje-de-avance 
+        porcentaje="100"
+        título="Comienzo">
+      </porcentaje-de-avance>
+      <porcentaje-de-avance
+        título="Inscripción"
+        porcentaje="75">
+      </porcentaje-de-avance>
+      <porcentaje-de-avance
+        porcentaje="0"
+        título="Desarrollo">
+      </porcentaje-de-avance>
+      <porcentaje-de-avance
+        porcentaje="0"
+        título="Término">
+      </porcentaje-de-avance>
+      <porcentaje-de-avance
+        porcentaje="0"
+        título="Certificación"
+        mostrar-flecha="no">
+      </porcentaje-de-avance>
+    </div>
     <div class="velo-de-fondo"></div>
-    <detalles-de-avance class="contenido-lateral"></detalles-de-avance>
+    <detalles-de-avance class="contenido-lateral">
+    </detalles-de-avance>
   </section>`;
 
 let _estilos = `<style>
@@ -98,27 +101,35 @@ let _estilos = `<style>
      * 1.1 Constantes.
      */
     --color-de-fondo: var(--color-ternario, #e2e1e0);
-  
+    width:  100vw;
     /**
      * 1.2 Tamaño.
-     */
-    width:  100%;
-    height: 100%;
+     
+    
+    */
+   height: 100%;
   
     /**
      * 1.3 Diseño.
      */
     overflow: hidden;
     background: var(--color-de-fondo);
-  
+
     /**
      * 1.4 Estructura interna.
      */
     display: flex;
-    justify-content:space-around;
+    
     align-items: center;
+   overflow-x: scroll;
   }
   
+  .flujo-de-procedimiento{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    padding: 0 70px;
+  }
   
   /***********************************\
    *   2 - CONTENIDO LATERAL         *
@@ -128,9 +139,9 @@ let _estilos = `<style>
      * 2.1 Tamaño y posicionamiento.
      */
     position: absolute;
-    top: 10vh;
-    left: 100vw;
-    width: 50vw;
+    top:    10vh;
+    left:   100vw;
+    width:  50vw;
     height: 100%;
     z-index: 8;
   
