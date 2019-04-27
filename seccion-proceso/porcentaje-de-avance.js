@@ -19,10 +19,10 @@ export class PorcentajeDeAvance extends HTMLElement {
       
       this.DOMRaiz = this.attachShadow({mode: 'open'});
       this.DOMRaiz.innerHTML += _estilos;
-      this.DOMRaiz.innerHTML += _plantilla(this.getAttribute('título'));
+      this.DOMRaiz.innerHTML += _plantilla(this.getAttribute('título'), this.getAttribute('mostrar-flecha'));
       
-      this.arcoIzquierdo = this.DOMRaiz.querySelector('.carga.izquierdo');
-      this.arcoDerecho   = this.DOMRaiz.querySelector('.carga.derecho');
+      this.arcoIzquierdo = this.DOMRaiz.querySelector('.-carga.-izquierdo');
+      this.arcoDerecho   = this.DOMRaiz.querySelector('.-carga.-derecho');
       setTimeout(() => this.cargarPorcentaje(100), 150);
     }
 
@@ -63,108 +63,123 @@ export class PorcentajeDeAvance extends HTMLElement {
  *   
  *   https://css-tricks.com/css-pie-timer/
  */
-let _plantilla = (título='') => `
+let _plantilla = (título='', flecha='') => `
   <div class="circunferencia">
-    <div class="arco-pi izquierdo mascara"></div>
-    <div class="arco-pi izquierdo carga"></div>
-    <div class="arco-pi derecho mascara"></div>
-    <div class="arco-pi derecho carga"></div>
+    <div class="arco-pi -izquierdo -mascara"></div>
+    <div class="arco-pi -izquierdo -carga"></div>
+    <div class="arco-pi -derecho -mascara"></div>
+    <div class="arco-pi -derecho -carga"></div>
     <div class="contenido">
       <p>${título}</p>
     </div>
+    ${!flecha
+    ?`<i class="flecha"></i>`
+    :''}
   </div>`;
 
 let _estilos = `
-  <style>
+<style>
   .circunferencia {
-    position: relative;
-    cursor: pointer;
-    width:  17.0vw;
-    height: 17.0vw;
-    max-width:  170px;
-    max-height: 170px;
+    position:   relative;
+    cursor:     pointer;
+    width:      10.0vw;
+    height:     10.0vw;
   }
+      .arco-pi {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        box-sizing: border-box;
+        border-width: 0.3vw;
+        border-style: solid;
+      }
+          .-izquierdo {
+            border-radius: 100% 0 0 100%/50%;
+            border-right: none;
+          }
+          .-derecho {
+            left: 50%;
+            border-radius: 0 100% 100% 0/50%;
+            border-left: none;
+          }
+          .-mascara {
+            border-color: rgb(153, 153, 153);
+          }
+          .-carga {
+            border-color: rgb(0, 181, 226);
+          }
+          
+          .-carga.-izquierdo {
+            transition: transform 0.5s ease-out;
+            transform-origin: 100% 50%;
+          }
+          .-carga.-derecho {
+            transition: transform 0.5s ease-in;
+            transform-origin: 0% 50%;
+          }
+          .-mascara.-izquierdo { z-index: 4; }
+          .-carga.-izquierdo   { z-index: 3; }
+          .-mascara.-derecho   { z-index: 2; }
+          .-carga.-derecho     { z-index: 1; }
+      
+      /**
+       * Contenido: Tamaño y posicionamiento.
+       */
+      .contenido {
+        width:  100%;
+        height: 100%;
+        position: absolute;
+      }
+      /**
+       * Contenido: Diseño de fondo y sombras.
+       */
+      .contenido {
+        border-radius: 3000px;
+        background: #f1f1f1;
+        box-sizing: border-box;
+      }
+      /**
+       * Contenido: Diseño y animación de las sombras.
+       */
+      .contenido{
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19),
+        0  6px  6px rgba(0,0,0,0.23);
+        transition: box-shadow 0.2s ease-out;    
+      }
+      .circunferencia:hover .contenido {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+                    0 10px 10px rgba(0,0,0,0.22);
+      }
+      /** 
+       * Contenido: Diseño de fuente.
+       */
+      .contenido {
+        display: flex;
+        user-select: none;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Source Sans Pro Regular';
+        font-size: 3.5vmin;
+        color: rgb(115, 113, 113);
+      }
   
-  .arco-pi {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    box-sizing: border-box;
-    border-width: 0.6vmin;
-    border-style: solid;
-  }
-  .izquierdo {
-    border-radius: 100% 0 0 100%/50%;
-    border-right: none;
-  }
-  .derecho {
-    left: 50%;
-    border-radius: 0 100% 100% 0/50%;
-    border-left: none;
-  }
-  
-  .mascara {
-    border-color: rgb(153, 153, 153);
-  }
-  
-  .carga {
-    border-color: rgb(0, 181, 226);
-  }
-  .carga.izquierdo {
-    transition: transform 0.5s ease-out;
-    transform-origin: 100% 50%;
-  }
-  .carga.derecho {
-    transition: transform 0.5s ease-in;
-    transform-origin: 0% 50%;
-  }
-  
-  .mascara.izquierdo { z-index: 4; }
-  .carga.izquierdo   { z-index: 3; }
-  .mascara.derecho   { z-index: 2; }
-  .carga.derecho     { z-index: 1; }
-  
-  /**
-   * Contenido: Tamaño y posicionamiento.
-   */
-  .contenido {
-    width:  100%;
-    height: 100%;
-    position: absolute;
-  }
-
-  /**
-   * Contenido: Diseño de fondo y sombras.
-   */
-  .contenido {
-    border-radius: 3000px;
-    background: #f1f1f1;
-    box-sizing: border-box;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19),
-                0  6px  6px rgba(0,0,0,0.23);
-    transition: box-shadow 0.2s ease-out;
-  }
-
-  /**
-   * Contenido:  Cambio de sombras al posicionar el cursor sobre el
-   * contenido.
-   */
-  .circunferencia:hover .contenido {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
-                0 10px 10px rgba(0,0,0,0.22);
-  }
-
-  /** 
-   * Contenido: Diseño de fuente.
-   */
-  .contenido {
-    display: flex;
-    user-select: none;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Source Sans Pro Regular';
-    font-size: 3.5vmin;
-    color: rgb(115, 113, 113);
-  }
-
-  </style>`;
+      /**
+       * Flecha: Posicionamiento.
+       */
+      .flecha{
+        width: fit-content;
+        position: absolute;
+        left: 120%;
+        top: 15%;
+        text-shadow: 0 10px 20px rgba(0,0,0,0.19),
+                     0  6px  6px rgba(0,0,0,0.23);
+      }
+      /**
+       * Flecha: Fuente.
+       */
+      .flecha::after {
+        content:   "\\2192";
+        color: rgb(115, 113, 113);
+        font-size: 6vw;
+      }
+</style>`;

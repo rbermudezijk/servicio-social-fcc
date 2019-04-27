@@ -82,7 +82,8 @@ let _plantilla = `
     </porcentaje-de-avance>
     <porcentaje-de-avance
       porcentaje="0"
-      título="Certificación">
+      título="Certificación"
+      mostrar-flecha="no">
     </porcentaje-de-avance>
     <div class="velo-de-fondo"></div>
     <detalles-de-avance class="contenido-lateral"></detalles-de-avance>
