@@ -19,7 +19,11 @@ export class PorcentajeDeAvance extends HTMLElement {
       
       this.DOMRaiz = this.attachShadow({mode: 'open'});
       this.DOMRaiz.innerHTML += _estilos;
-      this.DOMRaiz.innerHTML += _plantilla(this.getAttribute('título'), this.getAttribute('mostrar-flecha'));
+      this.DOMRaiz.innerHTML += _plantilla(
+        this.getAttribute('título') || '',
+        this.getAttribute('mostrar-flecha') || '',
+        this.getAttribute('icono') || '',
+      );
       
       this.arcoIzquierdo = this.DOMRaiz.querySelector('.-carga.-izquierdo');
       this.arcoDerecho   = this.DOMRaiz.querySelector('.-carga.-derecho');
@@ -63,16 +67,16 @@ export class PorcentajeDeAvance extends HTMLElement {
  *   
  *   https://css-tricks.com/css-pie-timer/
  */
-let _plantilla = (título='', flecha='') => `
+let _plantilla = (título, flecha, icono) => `
   <div class="
     circunferencia
     ${!flecha?`-margen-d-155`:''}">
-
     <div class="arco-pi -izquierdo -mascara"></div>
     <div class="arco-pi -izquierdo -carga"></div>
     <div class="arco-pi -derecho -mascara"></div>
     <div class="arco-pi -derecho -carga"></div>
     <div class="contenido">
+      ${icono}
       <p>${título}</p>
     </div>
 
@@ -160,15 +164,22 @@ let _estilos = `
        */
       .contenido {
         display: flex;
-        user-select: none;
-        -moz-user-select: none;
-        align-items: center;
+        flex-direction: column;
+        align-items:     center;
         justify-content: center;
-        font-family: 'Source Sans Pro Regular';
-        font-size: 25px /*3.5vmin*/;
-        color: rgb(115, 113, 113);
       }
   
+      .contenido p {
+        margin: 0;
+        user-select: none;
+        -moz-user-select: none;
+
+        font-family: 'Source Sans Pro Regular';
+        font-weight: 400px;
+        font-size: 23px /*3.5vmin*/;
+        color: rgb(115, 113, 113);
+      }
+
       /**
        * Flecha: Posicionamiento.
        */

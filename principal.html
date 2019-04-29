@@ -27,7 +27,17 @@
       import { BarraDeNavegación }   from './seccion-proceso/barra-de-navegacion.js';
       import { PorcentajeDeAvance }  from './seccion-proceso/porcentaje-de-avance.js';
       import { DetallesDeAvance }    from './seccion-proceso/detalles-de-avance.js';
-      
+      import { FiguraSVGCohete }     from './iconos/figura-svg-cohete.js';
+      import { FiguraSVGEditar }     from './iconos/figura-svg-editar.js';
+      import { FiguraSVGCerebro }     from './iconos/figura-svg-cerebro.js';
+      import { FiguraSVGCertificado } from './iconos/figura-svg-certificado.js';
+      import { FiguraSVGPersona }     from './iconos/figura-svg-persona.js';
+
+      customElements.define('figura-svg-cerebro',    FiguraSVGCerebro);
+      customElements.define('figura-svg-persona',    FiguraSVGPersona);
+      customElements.define('figura-svg-certificado',    FiguraSVGCertificado);
+      customElements.define('figura-svg-editar',     FiguraSVGEditar);
+      customElements.define('figura-svg-cohete',     FiguraSVGCohete);
       customElements.define('porcentaje-de-avance',  PorcentajeDeAvance);
       customElements.define('barra-de-navegacion',   BarraDeNavegación);
       customElements.define('detalles-de-avance',    DetallesDeAvance);

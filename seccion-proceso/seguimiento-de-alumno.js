@@ -65,24 +65,24 @@ export class SeguimientoDeAlumno extends HTMLElement {
 let _plantilla = `
   <section class="contenedor-principal">
     <div class="flujo-de-procedimiento">
-      <porcentaje-de-avance 
-        porcentaje="100"
+      <porcentaje-de-avance
+        icono="<figura-svg-cohete></figura-svg-cohete>"
         título="Comienzo">
       </porcentaje-de-avance>
       <porcentaje-de-avance
         título="Inscripción"
-        porcentaje="75">
+        icono="<figura-svg-editar></figura-svg-editar>">
       </porcentaje-de-avance>
       <porcentaje-de-avance
-        porcentaje="0"
+        icono="<figura-svg-cerebro></figura-svg-cerebro>"
         título="Desarrollo">
       </porcentaje-de-avance>
       <porcentaje-de-avance
-        porcentaje="0"
+        icono="<figura-svg-persona></figura-svg-persona>"
         título="Término">
       </porcentaje-de-avance>
       <porcentaje-de-avance
-        porcentaje="0"
+        icono="<figura-svg-certificado></figura-svg-certificado>"
         título="Certificación"
         mostrar-flecha="no">
       </porcentaje-de-avance>
