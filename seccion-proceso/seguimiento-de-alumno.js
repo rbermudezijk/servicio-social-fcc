@@ -64,6 +64,7 @@ export class SeguimientoDeAlumno extends HTMLElement {
  */
 let _plantilla = `
   <section class="contenedor-principal">
+    <h1 class="titulo-seccion">Proceso de certificación</h1>
     <div class="flujo-de-procedimiento">
       <porcentaje-de-avance
         icono="<figura-svg-cohete></figura-svg-cohete>"
@@ -104,10 +105,8 @@ let _estilos = `<style>
     width:  100vw;
     /**
      * 1.2 Tamaño.
-     
-    
     */
-   height: 100%;
+    height: 100%;
   
     /**
      * 1.3 Diseño.
@@ -119,16 +118,15 @@ let _estilos = `<style>
      * 1.4 Estructura interna.
      */
     display: flex;
-    
+    justify-content: center;
     align-items: center;
-   overflow-x: scroll;
+    overflow-x: scroll;
   }
   
   .flujo-de-procedimiento{
     width: -moz-fit-content;
     width: fit-content;
     display: flex;
-    padding: 0 70px;
   }
   
   /***********************************\
@@ -139,7 +137,7 @@ let _estilos = `<style>
      * 2.1 Tamaño y posicionamiento.
      */
     position: absolute;
-    top:    10vh;
+    top:    9vh;
     left:   100vw;
     width:  50vw;
     height: 100%;
@@ -188,5 +186,20 @@ let _estilos = `<style>
     opacity: 0.3;
     width:  100vw;
     height: 100vh;
+  }
+
+  .titulo-seccion {
+    position: absolute;
+    user-select: none;
+    top:   80px;
+    left:  115px;
+    color: #737171;
+    font-size:   39px;
+    font-weight: 300;
+    font-family: 'Source Sans Pro Regular';
+
+    border-bottom-width: 1px;
+    border-bottom-color: #bebba6;
+    border-bottom-style: solid;
   }
   </style>`;

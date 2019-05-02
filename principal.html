@@ -3,49 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-    <title>Servicio Social - FCC</title>
+    <title>FCC - Servicio Social</title>
+
     <style>
       @import url('contenido/fuente-source-sans-pro/definicion.css');
-      /*@import url('http://cdn.materialdesignicons.com/3.4.93/css/materialdesignicons.min.css');*/
-      
       body, html {
         margin: 0 !important;
         overflow: hidden;
       }
-      
-      :root{
-        --color-principal: rgb(0,59,92);
-        --color-secundario: rgb(0, 181, 226);
-        --color-ternario: #e2e0e0;
-      
-        --texto-principal: #fff;
-      }
     </style>
-    <script type="module">
-      import { EnsambleInicial }     from './seccion-proceso/ensamble-inicial.js';
-      import { SeguimientoDeAlumno } from './seccion-proceso/seguimiento-de-alumno.js';
-      import { BarraDeNavegación }   from './seccion-proceso/barra-de-navegacion.js';
-      import { PorcentajeDeAvance }  from './seccion-proceso/porcentaje-de-avance.js';
-      import { DetallesDeAvance }    from './seccion-proceso/detalles-de-avance.js';
-      import { FiguraSVGCohete }     from './iconos/figura-svg-cohete.js';
-      import { FiguraSVGEditar }     from './iconos/figura-svg-editar.js';
-      import { FiguraSVGCerebro }     from './iconos/figura-svg-cerebro.js';
-      import { FiguraSVGCertificado } from './iconos/figura-svg-certificado.js';
-      import { FiguraSVGPersona }     from './iconos/figura-svg-persona.js';
-
-      customElements.define('figura-svg-cerebro',    FiguraSVGCerebro);
-      customElements.define('figura-svg-persona',    FiguraSVGPersona);
-      customElements.define('figura-svg-certificado',    FiguraSVGCertificado);
-      customElements.define('figura-svg-editar',     FiguraSVGEditar);
-      customElements.define('figura-svg-cohete',     FiguraSVGCohete);
-      customElements.define('porcentaje-de-avance',  PorcentajeDeAvance);
-      customElements.define('barra-de-navegacion',   BarraDeNavegación);
-      customElements.define('detalles-de-avance',    DetallesDeAvance);
-      customElements.define('ensamble-inicial',      EnsambleInicial);
-      customElements.define('seguimiento-de-alumno', SeguimientoDeAlumno);
-    </script>
+    <link href="principal.css" rel="stylesheet" type="text/css">
+    <script type="module" src="principal.js"></script>
   </head>
   <body>
     <ensamble-inicial></ensamble-inicial>
+    <en.test-t></en.test-t>
   </body>
 </html>

@@ -1,0 +1,20 @@
+Por realizar:
+    General:
+        * Diseñar un enrutador.
+        * Objeto con encapsulación del estado de la aplicación.
+        
+    Módulo de proceso/inicio:
+        Diseño de Escritorio:
+           * Colocar `<Nombre de la facultad> | <Secretaría académica>` en el encabezado.
+           * Colocar procedimiento de baja.
+        
+        Diseño de Escritorio pequeño:
+
+        Diseño de tablet:
+
+        Diseño móvil:
+
+    Módulo de informes:
+
+    Módulo de vacantes:
+        

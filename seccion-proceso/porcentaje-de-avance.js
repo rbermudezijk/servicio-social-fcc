@@ -80,7 +80,7 @@ let _plantilla = (título, flecha, icono) => `
       <p>${título}</p>
     </div>
 
-    ${!flecha?`<i class="flecha"></i>`:''}
+    ${!flecha?`<div class="flecha"></div>`:''}
   </div>`;
 
 let _estilos = `
@@ -144,7 +144,7 @@ let _estilos = `
        */
       .contenido {
         border-radius: 3000px;
-        background: #f1f1f1;
+        background: #fafafa;
         box-sizing: border-box;
       }
       /**
@@ -155,12 +155,15 @@ let _estilos = `
                     0  6px  6px rgba(0,0,0,0.23);
         transition: box-shadow 0.2s ease-out;    
       }
+      .circunferencia:hover .contenido{
+        background: #fff;
+      }
       .circunferencia:hover .contenido {
         box-shadow: 0 14px 28px rgba(0,0,0,0.25),
                     0 10px 10px rgba(0,0,0,0.22);
       }
       /** 
-       * Contenido: Diseño de fuente.
+       * Contenido: Posicionamiento de elementos internos.
        */
       .contenido {
         display: flex;
@@ -169,13 +172,16 @@ let _estilos = `
         justify-content: center;
       }
   
+      /** 
+       * Contenido: Diseño de fuente.
+       */
       .contenido p {
         margin: 0;
         user-select: none;
         -moz-user-select: none;
 
         font-family: 'Source Sans Pro Regular';
-        font-weight: 400px;
+        font-weight: 400;
         font-size: 23px /*3.5vmin*/;
         color: rgb(115, 113, 113);
       }
@@ -184,19 +190,13 @@ let _estilos = `
        * Flecha: Posicionamiento.
        */
       .flecha {
-        width: fit-content;
+        height: 5px;
+        width: 155px;
+        background: rgb(0,59,92);
         position: absolute;
-        left: 120%;
-        top:  15%;
+        left: 100%;
+        top:  50%;
         text-shadow: 0 10px 20px rgba(0,0,0,0.19),
                      0  6px  6px rgba(0,0,0,0.23);
-      }
-      /**
-       * Flecha: Fuente.
-       */
-      .flecha::after {
-        content:   "\\2192";
-        color: rgb(115, 113, 113);
-        font-size: 100px/*6vw*/;
       }
 </style>`;

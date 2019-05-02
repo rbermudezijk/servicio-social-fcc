@@ -10,7 +10,7 @@ export class DetallesDeAvance extends HTMLElement {
 
 let _plantilla = `
   <aside class="contenedor-principal">
-    <h1>Inicio del Servicio Social</h1>
+    <h1>1. Inicio del Servicio Social</h1>
     <ul>
       <li>Asiste a la junta de inducción.</li>
       <li>Revisa detalladamente el reglamento del Servicio Social</li>

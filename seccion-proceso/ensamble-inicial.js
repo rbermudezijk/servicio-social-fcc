@@ -10,8 +10,8 @@ export class EnsambleInicial extends HTMLElement {
 
 let _plantilla = `
   <main class="contenedor-principal">
-    <barra-de-navegacion class="encabezado">
-    </barra-de-navegacion>
+    <fcc.ssc.encabezado-principal class="encabezado">
+    </fcc.ssc.encabezado-principal>
     <seguimiento-de-alumno class="contenido">
     </seguimiento-de-alumno>
   </main>`;
@@ -33,7 +33,7 @@ let _estilos = `
       grid-template-areas:
         "encabezado"
         "contenido";
-      grid-template-rows: 1fr 9fr;
+      grid-template-rows: 0.9fr 9.1fr;
       grid-template-columns: 1fr;
     }
     .encabezado {

@@ -1,0 +1,9 @@
+:root{
+  --color-principal:      rgb(  0,  59,  92);
+  --color-secundario:     rgb(  0, 181, 226);
+  --color-de-institucion: rgb(237, 113,   2);
+  --color-de-fondo:   #f4f4f4;
+
+  --texto-de-encabezado--color: #fff;
+  /*--texto-secundario: */
+}
