@@ -1,14 +1,10 @@
+import { ComponenteWeb } from "../_general/definiciones/componente-web.js";
 
-export class DetallesDeAvance extends HTMLElement {
-    constructor() {
-        super();
-        this.DOMRaíz = this.attachShadow({mode: 'open'})
-        this.DOMRaíz.innerHTML += _plantilla;
-        this.DOMRaíz.innerHTML += _estilos;
-    }
-}
+export class DetallesDelProcedimiento extends ComponenteWeb {}
 
-let _plantilla = `
+DetallesDelProcedimiento.__etiqueta = 'fcc.ssc.detalles-del-procedimiento';
+
+DetallesDelProcedimiento.prototype.__plantillaHTML = () => `
   <aside class="contenedor-principal">
     <h1>1. Inicio del Servicio Social</h1>
     <ul>
@@ -19,8 +15,7 @@ let _plantilla = `
     </ul>
   </aside>`;
 
-let _estilos = `
-  <style>
+DetallesDelProcedimiento.prototype.__estilos = () => `
     .contenedor-principal {
       width: 100%;
       height: 100%;
@@ -58,5 +53,4 @@ let _estilos = `
       left: -1em;
       top: 20pt;
       position: relative;
-    }
-  </style>`;
+    }`;

@@ -1,42 +1,35 @@
+import { ComponenteWeb } from "../_general/definiciones/componente-web.js";
+
 /**
- * #Autor              -> Ricardo Bermúdez Bermúdez.
- * #Correo electrónico -> ricardob.sistemas@gmail.com
- * #Fecha de creación  -> 20 de febrero del 2019.
+ * Autor:              Ricardo Bermúdez Bermúdez.
+ * Correo electrónico: ricardob.sistemas@gmail.com
+ * Fecha de creación:  20 de febrero del 2019.
  * 
  * Este componente representa una determinada etapa del proceso de desarrollo
  * del Servicio Social.
  */
-export class PorcentajeDeAvance extends HTMLElement {  
+export class ProcedimientoDeCertificación extends ComponenteWeb {  
 
-    /**
-     * Carga la plantilla HTML y los estilos necesarios.
-     * 
-     * Obtiene las referencias de los nodos utilizados para agregar la escucha
-     * de eventos de la interfaz.
-     */
-    constructor() {
-      super();
-      
-      this.DOMRaiz = this.attachShadow({mode: 'open'});
-      this.DOMRaiz.innerHTML += _estilos;
-      this.DOMRaiz.innerHTML += _plantilla(
-        this.getAttribute('título') || '',
-        this.getAttribute('mostrar-flecha') || '',
-        this.getAttribute('icono') || '',
-      );
-      
-      this.arcoIzquierdo = this.DOMRaiz.querySelector('.-carga.-izquierdo');
-      this.arcoDerecho   = this.DOMRaiz.querySelector('.-carga.-derecho');
-      setTimeout(() => this.cargarPorcentaje(100), 150);
+  __parametrosDeMontaje() {
+    return {
+      título: this.getAttribute('título') || '',
+      flecha: this.getAttribute('mostrar-flecha') || '',
+      icono:  this.getAttribute('icono') || '',
     }
+  }
 
-    /**
-     * - porcentaje<número-flotante> -> Porcentaje de avance con valores entre
-     *                                  1 y 100.
-     * 
-     * Actualiza la barra de porcentaje de avance del alumno.
-     */
-    cargarPorcentaje(porcentaje) {
+  connectedCallback() {
+    this.arcoIzquierdo = this.DOMRaiz.querySelector('.-carga.-izquierdo');
+    this.arcoDerecho   = this.DOMRaiz.querySelector('.-carga.-derecho');
+    setTimeout(() => this.animaciónDeArco(100), 150);
+  }
+  
+  /**
+   * porcentaje(número flotante): Porcentaje de avance con valores entre 1 y 100.
+   * 
+   * Activa la animación de coloración del borde circular del componente.
+   */
+  animaciónDeArco(porcentaje) {
       let grados = porcentaje * 3.6;
       
       if (grados < 180) {
@@ -55,6 +48,8 @@ export class PorcentajeDeAvance extends HTMLElement {
     }
 }
 
+ProcedimientoDeCertificación.__etiqueta = 'fcc.ssc.procedimiento-de-certificacion';
+
 /**
  * - radio<número-flotante> -> Radio de la circunferencia a dibujar en la
  *                             interfaz de usuario.
@@ -67,7 +62,7 @@ export class PorcentajeDeAvance extends HTMLElement {
  *   
  *   https://css-tricks.com/css-pie-timer/
  */
-let _plantilla = (título, flecha, icono) => `
+ProcedimientoDeCertificación.prototype.__plantillaHTML = ({título, flecha, icono}) => `
   <div class="
     circunferencia
     ${!flecha?`-margen-d-155`:''}">
@@ -79,12 +74,10 @@ let _plantilla = (título, flecha, icono) => `
       ${icono}
       <p>${título}</p>
     </div>
-
     ${!flecha?`<div class="flecha"></div>`:''}
   </div>`;
 
-let _estilos = `
-<style>
+ProcedimientoDeCertificación.prototype.__estilos = () => `
   .circunferencia {
     position:   relative;
     cursor:     pointer;
@@ -198,5 +191,4 @@ let _estilos = `
         top:  50%;
         text-shadow: 0 10px 20px rgba(0,0,0,0.19),
                      0  6px  6px rgba(0,0,0,0.23);
-      }
-</style>`;
+      }`;

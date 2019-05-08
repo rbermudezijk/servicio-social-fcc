@@ -11,16 +11,23 @@ export class ComponenteWeb extends HTMLElement {
 
       this.DOMRaiz = this.attachShadow({mode: 'open'});
 
-      this.montajeDeInterfaz(
-        this.__estilos             || (()=>{}),
-        this.__plantillaHTML       || (()=>{}),
-        this.__parametrosDeMontaje || {}
+      this.__montajeDeInterfaz(
+        this.__estilos               || (()=>{}),
+        this.__plantillaHTML         || (()=>{}),
+        this.__parametrosDeMontaje() || {}
       );
     }
 
-    montajeDeInterfaz(estilos, plantillaHTML, parametrosDeMontaje) {  
+    __montajeDeInterfaz(estilos, plantillaHTML, parametrosDeMontaje) {  
       this.DOMRaiz.innerHTML  = `<style>${estilos(parametrosDeMontaje)}</style>`;
       this.DOMRaiz.innerHTML += plantillaHTML(parametrosDeMontaje);
     }
-    
+
+    __parametrosDeMontaje(){}
+}
+
+export function __registrarComponentes(listaDeComponentesWeb) {
+  listaDeComponentesWeb.map(componenteWeb =>
+    console.log(componenteWeb) ||
+    customElements.define(componenteWeb.__etiqueta, componenteWeb))
 }

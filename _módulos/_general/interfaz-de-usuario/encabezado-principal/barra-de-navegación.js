@@ -1,42 +1,56 @@
-import { ComponenteWeb } from "../../núcleo/componente-web.js";
+import { ComponenteWeb } from "../../definiciones/componente-web.js";
 
+/**
+ * Autor:              Ricardo Bermúdez Bermúdez.
+ * Correo electrónico: ricardob.sistemas@gmail.com
+ * Fecha de creación:  30 de abril del 2019.
+ * 
+ * Representa la barra de navegación de la aplicación con los enlaces a los
+ * módulos principales de la misma.
+ */
 export class BarraDeNavegación extends ComponenteWeb {}
 
+BarraDeNavegación.__etiqueta = 'fcc.ssc.barra-de-navegacion';
+
 BarraDeNavegación.prototype.__plantillaHTML = () => `
-  <nav>
-    <a class="-activado">Inicio</a>
-    <a>Informes</a>
-    <a>Vacantes</a>
-    <a>Asesoría</a>
-  </nav>
-`;
+<nav>
+  <a class="-activado">Inicio</a>
+  <a>Informes</a>
+  <a>Vacantes</a>
+  <a>Asesoría</a>
+</nav>`;
 
 BarraDeNavegación.prototype.__estilos = () => `
   /**
-   * 1- Barra de navegación.
+   * 1.- Barra de navegación.
    * 
-   * [A] Ocupa todo el alto del elemento que contiene la barra de navegación
+   * [A] Variables de acople.
+   * 
+   * [B] Ocupa todo el alto del elemento que contiene la barra de navegación
    *     (fcc.ssc.barra-de-navegacion) para que al definir el posicionamiento
    *     de los elementos internos como "flex" estos se adapten a la altura
    *     ya que por defecto align-text se define "stretch".
    * 
-   * [B] Posicionamiento de los elementos internos.
+   * [C] Posicionamiento de los elementos internos (Flex).
    */
   nav {
+    /** [A] */
     --texto-de-etiquetas--color: var(--texto-de-encabezado--color, #fff);
     --color-de-borde:            var(--color-secundario, rgb(0, 181, 226));
 
-    height: 100%;  /* [A] */
-    display: flex; /* [B] */
+    height: 100%;  /* [B] */
+    display: flex; /* [C] */
   }
   
   /**
-   * 2- Etiquetas de la barra de navegación
+   * 2.- Etiquetas de la barra de navegación.
    * 
    * [A] Posicionamiento y tamaño.
    * [B] Diseño de fuente.
+   * [C] Diseño de borde inferior (Transición).
+   * [D] Posicionamiento de texto internos.
    */
-  nav a{
+  nav a {
     /* [A] */
     padding: 0 20px;
     box-sizing: border-box;
@@ -50,24 +64,18 @@ BarraDeNavegación.prototype.__estilos = () => `
     user-select: none;
     -moz-user-select: none;
   
-    /**
-     * 2.3 - Diseño de borde inferior.
-     */
+    /** [C] */
     border-bottom: 5px transparent solid;
     transition: border-bottom-color 0.4s ease-in-out;
   
-    /**
-     * 2.4 Estructura interna (Posicionamiento de texto interior).
-     */
+    /** [D] */
     display: flex;
     align-items: center;    
   }
   
-  /**
-   * 2.5 - Transición de borde inferior.
-   */
+  /** 2.1.- Diseño de borde inferior activo. */
   nav a:hover,
-  nav a.-activado{
+  nav a.-activado {
     border-bottom-color: rgb(0,181,226);
     cursor: pointer;
   }
