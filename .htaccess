@@ -1,0 +1,11 @@
+#Activamos la reescritura SI SOLO SI el mod_rewrite se encuentra activado, as� se evitan errores 500
+<IfModule mod_rewrite.c>
+    # Suponiendo que el listado de directorios est� desactivado, permitimos indexaci�n y activamos el rewrite
+    Options +FollowSymLinks -Indexes
+    RewriteEngine on
+    
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RedirectMatch 403 ^/(system).*$
+    RewriteRule ^(.*)$ /servicio-social/inicio.html [L]
+</IfModule>
