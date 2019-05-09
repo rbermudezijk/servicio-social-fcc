@@ -14,10 +14,14 @@ BarraDeNavegación.__etiqueta = 'fcc.ssc.barra-de-navegacion';
 
 BarraDeNavegación.prototype.__plantillaHTML = () => `
 <nav>
-  <a class="-activado">Inicio</a>
-  <a>Informes</a>
-  <a>Vacantes</a>
-  <a>Asesoría</a>
+  <a class="${location.hash.match('inicio')?'-activado':''}"
+     href="#inicio">Inicio</a>
+  <a class="${location.hash.match('informes')?'-activado':''}"
+     href="#informes">Informes</a>
+  <a class="${location.hash.match('vacantes')?'-activado':''}"
+    href="#vacantes">Vacantes</a>
+  <a class="${location.hash.match('contacto')?'-activado':''}"
+    href="#contacto">Contacto</a>
 </nav>`;
 
 BarraDeNavegación.prototype.__estilos = () => `
@@ -63,6 +67,7 @@ BarraDeNavegación.prototype.__estilos = () => `
     font-weight: 400;
     user-select: none;
     -moz-user-select: none;
+    text-decoration: none;
   
     /** [C] */
     border-bottom: 5px transparent solid;

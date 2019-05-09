@@ -8,7 +8,13 @@ import { ComponenteWeb } from "../../definiciones/componente-web.js";
  * Representa el encabezado principal de la aplicación compuesto de los
  * componentes <fcc.ssc.emblema-fcc> y <fcc.ssc.barra-de-navegacion>.
  */
-export class EncabezadoPrincipal extends ComponenteWeb {}
+export class EncabezadoPrincipal extends ComponenteWeb {
+//  __parametrosDeMontaje(){
+//    return {
+//      enlace: 
+//    }
+//  }
+}
 
 EncabezadoPrincipal.__etiqueta = 'fcc.ssc.encabezado-principal';
 
