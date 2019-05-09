@@ -7,5 +7,5 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RedirectMatch 403 ^/(system).*$
-    RewriteRule ^(.*)$ /servicio-social-fcc/inicio.html [L]
+    RewriteRule ^(.*)$ inicio.html [L]
 </IfModule>
