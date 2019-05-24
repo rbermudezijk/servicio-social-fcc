@@ -14,7 +14,7 @@ BarraDeNavegación.__etiqueta = 'fcc.ssc.barra-de-navegacion';
 
 BarraDeNavegación.prototype.__plantillaHTML = () => `
 <nav>
-  <a class="${location.hash.match('inicio')?'-activado':''}"
+  <a class="${location.hash.match('inicio')  ?'-activado':''}"
      href="#inicio">Inicio</a>
   <a class="${location.hash.match('informes')?'-activado':''}"
      href="#informes">Informes</a>
@@ -56,14 +56,14 @@ BarraDeNavegación.prototype.__estilos = () => `
    */
   nav a {
     /* [A] */
-    padding: 0 20px;
+    min-width: 12.5vw;
     box-sizing: border-box;
   
     /* [B] */
     color: var(--texto-de-etiquetas--color);
     font-size: 21.5px;
     letter-spacing: 0;
-    font-family:  'Source Sans Pro Regular';
+    font-family: 'Source Sans Pro Regular';
     font-weight: 400;
     user-select: none;
     -moz-user-select: none;
@@ -75,9 +75,14 @@ BarraDeNavegación.prototype.__estilos = () => `
   
     /** [D] */
     display: flex;
-    align-items: center;    
+    align-items:     center;
+    justify-content: center;
   }
   
+  @media (min-width: 1250px){
+    nav a { min-width: 10vw; }
+  }
+
   /** 2.1.- Diseño de borde inferior activo. */
   nav a:hover,
   nav a.-activado {

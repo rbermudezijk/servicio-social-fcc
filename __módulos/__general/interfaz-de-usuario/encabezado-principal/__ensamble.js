@@ -61,28 +61,24 @@ EncabezadoPrincipal.prototype.__estilos = () => `
   /**
    * 2.- Emblema del encabezado.
    * 
-   * [A] Dado que no existe una propiedad CSS como "justify-self" para
-   *     posicionar los elementos sobre el eje principal del contenedor flex
-   *     les necesario utilizar las propiedades margin-left o margin-right
-   *     para inclinar el elemento hacia la izquierda o derecha según sea el
-   *     caso.
-   * 
    * [B] Centrar el elemento respecto al eje cruzado.
    */
   fcc\\.ssc\\.emblema-fcc {
-    /** [A] */
-    margin-left: var(--margen-lateral);
-
     /** [B] */
     align-self: center;
   }
 
   /**
    * 3.- Barra de navegación.
+   * 
+   * [A] Dado que no existe una propiedad CSS como "justify-self" para
+   *     posicionar los elementos sobre el eje principal del contenedor flex
+   *     les necesario utilizar las propiedades margin-left o margin-right
+   *     para inclinar el elemento hacia la izquierda o derecha según sea el
+   *     caso.
    */
   fcc\\.ssc\\.barra-de-navegacion {
-    /** [2.A] */
-    margin-right: var(--margen-lateral);
+    /** [A] */
     margin-left: auto;
   }
 `;

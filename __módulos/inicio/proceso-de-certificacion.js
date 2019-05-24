@@ -1,4 +1,4 @@
-import { ComponenteWeb } from '../_general/definiciones/componente-web.js';
+import { ComponenteWeb } from '../__general/definiciones/componente-web.js';
 /**
  * Autor:              Ricardo Bermúdez Bermúdez.
  * Correo electrónico: ricardob.sistemas@gmail.com.
@@ -51,7 +51,7 @@ ProcesoDeCertificación.prototype.__plantillaHTML = () => `
   <div class="flujo-de-proceso">
     <fcc.ssc.procedimiento-de-certificacion
       icono="<fcc.ssc.figura-svg-cohete></fcc.ssc.figura-svg-cohete>"
-      título="Comienzo">
+      título="Inicio">
     </fcc.ssc.procedimiento-de-certificacion>
     <fcc.ssc.procedimiento-de-certificacion
       icono="<fcc.ssc.figura-svg-editar></fcc.ssc.figura-svg-editar>"
@@ -169,8 +169,8 @@ ProcesoDeCertificación.prototype.__estilos = () => `
   .titulo-seccion {
     position: absolute;
     user-select: none;
-    top:   80px;
-    left:  115px;
+    top:   68px;
+    left:  70.5px;
     color: #737171;
     font-size:   39px;
     font-weight: 300;

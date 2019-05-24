@@ -1,4 +1,4 @@
-import { ComponenteWeb } from "../_general/definiciones/componente-web.js";
+import { ComponenteWeb } from "../__general/definiciones/componente-web.js";
 
 export class MóduloDeInformes extends ComponenteWeb{}
 

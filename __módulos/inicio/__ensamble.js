@@ -1,4 +1,4 @@
-import { ComponenteWeb } from '../_general/definiciones/componente-web.js';
+import { ComponenteWeb } from '../__general/definiciones/componente-web.js';
 
 /**
  * Autor:              Ricardo Bermúdez Bermúdez.
@@ -33,7 +33,7 @@ MóduloInicial.prototype.__estilos = () => `
     /** [B] */
     display: grid;
     grid-template-areas: "encabezado" "contenido";
-    grid-template-rows: 0.9fr 9.1fr;
+    grid-template-rows: 0.08fr 9.2fr;
     grid-template-columns: 1fr;
   }
   

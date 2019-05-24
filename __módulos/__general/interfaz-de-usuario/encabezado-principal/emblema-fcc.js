@@ -41,12 +41,14 @@ EmblemaFCC.prototype.__estilos = () => `
     display: flex;
     align-items: center;
   }
-
+  
   /** 2.- Título del emblema. */
   a {
          user-select: none;
     -moz-user-select: none;
     color: var(--color-de-titulo);
+    margin-left: 20px;
+    letter-spacing:2.5px;
   }
   
   /** 3.- Divisor. */
@@ -54,8 +56,12 @@ EmblemaFCC.prototype.__estilos = () => `
     width:   5px;
     height: 55px;
     display: inline-block;
-    margin: 0 15px 0 10px;
+    
     border-radius: 2px;
     background: var(--color-de-divisor);
+  }
+
+  fcc\\.ssc\\.figura-svg-emblema{
+    margin: 0 10px;
   }
 `;

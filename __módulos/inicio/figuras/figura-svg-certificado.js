@@ -1,4 +1,4 @@
-import { FiguraSVG } from '../../_general/definiciones/figura-svg.js';
+import { FiguraSVG } from '../../__general/definiciones/figura-svg.js';
 
 export class FiguraSVGCertificado extends FiguraSVG {}
 

@@ -1,4 +1,4 @@
-import { ComponenteWeb } from "../_general/definiciones/componente-web.js";
+import { ComponenteWeb } from "../__general/definiciones/componente-web.js";
 
 /**
  * Autor:              Ricardo Bermúdez Bermúdez.
@@ -81,8 +81,8 @@ ProcedimientoDeCertificación.prototype.__estilos = () => `
   .circunferencia {
     position:   relative;
     cursor:     pointer;
-    width:      150px/*10.0vw*/;
-    height:     150px/*10.0vw*/;
+    width:      150px;
+    height:     150px;
   }
   .-margen-d-155 {
     margin-right: 155px;

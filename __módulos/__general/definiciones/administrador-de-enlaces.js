@@ -30,7 +30,7 @@ export class AdministradorDeEnlaces extends ComponenteWeb {
     }
 
     connectedCallback() {
-        window.addEventListener('hashchange', ()=>this.cargarComponente(location.hash));
+        window.addEventListener('hashchange', () => this.cargarComponente(location.hash));
         this.cargarComponente(location.hash)
     }
 
