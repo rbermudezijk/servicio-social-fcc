@@ -85,7 +85,7 @@ ProcedimientoDeCertificación.prototype.__estilos = () => `
     height:     150px;
   }
   .-margen-d-155 {
-    margin-right: 155px;
+    margin-right: calc(calc(100vw - 890px)/4);
   }
       .arco-pi {
         width: 50%;
@@ -184,7 +184,7 @@ ProcedimientoDeCertificación.prototype.__estilos = () => `
        */
       .flecha {
         height: 5px;
-        width: 155px;
+        width: calc(calc(100vw - 890px)/4);
         background: rgb(0,59,92);
         position: absolute;
         left: 100%;

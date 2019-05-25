@@ -33,7 +33,7 @@ MóduloInicial.prototype.__estilos = () => `
     /** [B] */
     display: grid;
     grid-template-areas: "encabezado" "contenido";
-    grid-template-rows: 0.08fr 9.2fr;
+    grid-template-rows: 68px 1fr;
     grid-template-columns: 1fr;
   }
   

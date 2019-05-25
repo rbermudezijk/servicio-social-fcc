@@ -90,7 +90,7 @@ ProcesoDeCertificación.prototype.__estilos = () => `
     --color-de-fondo: var(--color-ternario, #e2e1e0);
 
     /** [B] */
-    width:  100vw;
+    width:  100%;
     height: 100%;
   
     /** [C] */
@@ -169,7 +169,7 @@ ProcesoDeCertificación.prototype.__estilos = () => `
   .titulo-seccion {
     position: absolute;
     user-select: none;
-    top:   68px;
+    top:   calc(68px + 30px);
     left:  70.5px;
     color: #737171;
     font-size:   39px;
