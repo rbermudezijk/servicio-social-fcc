@@ -61,10 +61,10 @@ BarraDeNavegación.prototype.__estilos = () => `
   
     /* [B] */
     color: var(--texto-de-etiquetas--color);
-    font-size: 21.5px;
-    letter-spacing: 0;
-    font-family: 'Source Sans Pro Regular';
-    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 13pt;
+    font-family: Arial;
+    font-weight: 600;
     user-select: none;
     -moz-user-select: none;
     text-decoration: none;

@@ -84,6 +84,24 @@ ProcedimientoDeCertificación.prototype.__estilos = () => `
     width:      150px;
     height:     150px;
   }
+
+  @media (max-width: 1000px){
+    .circunferencia {
+      width:      110px;
+      height:     110px;
+    }
+    .contenido p{
+      position: absolute;
+      top: 130px;
+    }
+    .-margen-d-155 {
+      margin-right: calc(calc(100vw - 690px)/4) !important;
+    }
+    .flecha {
+      width: calc(calc(100vw - 690px)/4) !important;
+    }
+  }
+
   .-margen-d-155 {
     margin-right: calc(calc(100vw - 890px)/4);
   }

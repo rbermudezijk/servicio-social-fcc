@@ -47,7 +47,7 @@ ProcesoDeCertificación.__etiqueta = 'fcc.ssc.proceso-de-certificacion';
 
 ProcesoDeCertificación.prototype.__plantillaHTML = () => `
 <section>
-  <h1 class="titulo-seccion">Proceso de certificación</h1>
+  <h1 class="titulo-seccion">Proceso de certificación.</h1>
   <div class="flujo-de-proceso">
     <fcc.ssc.procedimiento-de-certificacion
       icono="<fcc.ssc.figura-svg-cohete></fcc.ssc.figura-svg-cohete>"
